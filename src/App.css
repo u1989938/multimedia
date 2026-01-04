@@ -1,38 +1,303 @@
-.App {
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f7f7;
+  color: #34495e;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-align: center;  /* Center titles */
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: url('assets/menorca-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.hero-section h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  background-color: #f39c12;
+  color: white;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+/* Activity Selector */
+.activity-selector {
+  padding: 60px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.activity-selector h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #2c3e50;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Grid Layout for Activity Cards */
+.activity-cards {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+
+/* Styling for each activity card */
+.activity-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.activity-card .activity-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.activity-card h3 {
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
+.activity-card p {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin: 10px 20px;
+}
+
+/* "Learn More" button and expanded content */
+.learn-more {
+  display: block;
+  padding: 10px 20px;
+  background-color: #2980b9;
   color: white;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.learn-more:hover {
+  background-color: #3498db;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Hidden info section (will show when clicked) */
+.activity-info {
+  display: none;
+  padding: 20px;
+  background-color: #ecf0f1;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #34495e;
+  text-align: left;
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Show info when clicked */
+.activity-card.active .activity-info {
+  display: block;
+}
+
+.activity-card.active .learn-more {
+  background-color: #e67e22;
+}
+
+/* Cart Section */
+.cart-section {
+  margin-top: 60px;
+  padding: 20px;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cart-section h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cart-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-section li {
+  background-color: white;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-section li button {
+  padding: 5px 10px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-section li button:hover {
+  background-color: #d35400;
+}
+
+.cart-section p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+/* Add to Cart button styling */
+.add-to-cart {
+  display: block;
+  padding: 12px 20px;
+  background-color: #27ae60;  /* Green button color */
+  color: white;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #2ecc71;  /* Lighter green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+
+/* Footer */
+footer {
+  background-color: #34495e;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+footer a {
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #e67e22;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero-section p {
+    font-size: 1.2rem;
   }
+
+  .activity-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-card {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Audio Section */
+.audio-section {
+  padding: 60px 20px;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;  /* Stack the title and audio player vertically */
+  justify-content: center; 
+  align-items: center;      
+  height: 300px;           
+  background-color: #f7f7f7; 
+}
+
+.audio-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px; 
+}
+
+.audio-section audio {
+  width: 80%; 
+  max-width: 600px; 
+  border-radius: 8px;  
 }

@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import HeroSection from './components/HeroSection';
+import VideoSection from './components/VideoSection';
+import AudioSection from './components/AudioSection';
+import ActivitySelector from './components/ActivitySelector';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <HeroSection />
+      <VideoSection />
+      <AudioSection />
+      <ActivitySelector />
+      <footer>
+        <p>&copy; 2026 Menorca Tourism. All Rights Reserved.</p>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Visit the <a href="https://www.menorca.es/portal.aspx?IDIOMA=1" target="_blank" rel="noopener noreferrer">official Menorca Tourism Website</a>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </footer>
     </div>
+    
   );
 }
 
